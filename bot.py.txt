@@ -1,0 +1,18 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f"Bot is online as {bot.user}")
+
+@bot.slash_command(name="hello", description="Replies with a simple message.")
+async def hello(ctx):
+    await ctx.respond("Hello! This is a simple bot.")
+
+bot.run token
+
+See? The token is unavailable to see because we need to protect our privacy! 
+
